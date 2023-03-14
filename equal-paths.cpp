@@ -34,7 +34,8 @@ bool equalPaths(Node * root)
 }
 
 
-int get_base_h(int h, Node * curr_node){
+int get_base_h(int h, Node * curr_node)
+{
 	if (curr_node == nullptr){
 		return 0;
 	}
@@ -50,7 +51,8 @@ int get_base_h(int h, Node * curr_node){
 }
 
 
-bool comp(int base_h, Node * curr_node, int curr_h){
+bool comp(int base_h, Node * curr_node, int curr_h)
+{
 	// if curr_node == nullptr
 	if (curr_node == nullptr){
 		return true;
