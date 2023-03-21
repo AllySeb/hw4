@@ -137,7 +137,8 @@ protected:
     virtual void nodeSwap( AVLNode<Key,Value>* n1, AVLNode<Key,Value>* n2);
 
     // Add helper functions here
-
+    Node<Key, Value>* getLeaf(Node<Key, Value>* current);
+	void balance(AVLNode<Key,Value>* node);
 
 };
 
@@ -149,17 +150,56 @@ template<class Key, class Value>
 void AVLTree<Key, Value>::insert (const std::pair<const Key, Value> &new_item)
 {
     // TODO
+
+    // // if tree is empty, insert
+    // if (empty()){
+    //     root_ = new Node<Key, Value>(new_item.first, new_item.second, nullptr);
+    //     root_->setBalance = 0;
+    // }
+    // else{
+    //     Node<Key, Value>* temp = root_;
+    //     // check, if new_item is more than temp and a temp->right exists, traverse right
+    //     // or if new_item is less than temp and a temp->left exists, traverse left
+
+    // }
+
+
 }
+
+
+/*
+ * Insert() helper function, finds leaf node to 
+ */
+template<class Key, class Value>
+Node<Key, Value>* getLeaf(Node<Key, Value>* current)
+{
+
+}
+
+
 
 /*
  * Recall: The writeup specifies that if a node has 2 children you
  * should swap with the predecessor and then remove.
  */
 template<class Key, class Value>
-void AVLTree<Key, Value>:: remove(const Key& key)
+void AVLTree<Key, Value>::remove(const Key& key)
 {
     // TODO
+
+
 }
+
+
+/*
+ * Helper function: balances AVL tree, decides what kind of rotation necessary
+ */
+template<class Key, class Value>
+void AVLTree<Key, Value>::balance(AVLNode<Key,Value>* node)
+{
+  //  if ()
+}
+
 
 template<class Key, class Value>
 void AVLTree<Key, Value>::nodeSwap( AVLNode<Key,Value>* n1, AVLNode<Key,Value>* n2)
