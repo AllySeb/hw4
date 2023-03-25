@@ -472,7 +472,8 @@ void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &key
 
     // when root is null
     if (empty()){
-        root_ = new Node<Key, Value>(keyValuePair.first, keyValuePair.second, nullptr);
+        Node<Key, Value>* newnode = new Node<Key, Value>(keyValuePair.first, keyValuePair.second, nullptr);
+				root_ = newnode;
     }
     // if key already in tree, update its value
     else if (internalFind(keyValuePair.first) != NULL){
@@ -482,7 +483,7 @@ void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &key
     else{
         // traverse > or < with helper function
         Node<Key, Value>* newnode = new Node<Key, Value>(keyValuePair.first, keyValuePair.second, nullptr);
-		insertHelp(newnode, root_);
+				insertHelp(newnode, root_);
     }
 }
 
@@ -541,6 +542,7 @@ void BinarySearchTree<Key, Value>::remove(const Key& key)
             // because this is when the node to be removed specifically
             // has no children either
             if (root_ == target){
+							delete target;
                 root_ = NULL;
             }
             else {
@@ -703,8 +705,9 @@ void BinarySearchTree<Key, Value>::clearHelp(Node<Key, Value>* current)
         delete current;
     }
     else{
-        clearHelp(current->getRight());
-        clearHelp(current->getLeft());
+			clearHelp(current->getLeft());
+      clearHelp(current->getRight());
+			delete current;
     }
 }
 
